@@ -65,20 +65,21 @@ La aplicación se abrirá en http://localhost:4200
 ## 🔑 3. Credenciales de Prueba
 
 - Utiliza estas credenciales para probar los flujos de cada rol (la contraseña es 123456 para todos):
-# Rol	            Usuario	            Nombre Completo
-Administrador	  admin1@test.com	    Carlos Gómez
-Soporte	          soporte1@test.com	    María Rodríguez
-Cliente	          cliente1@test.com	    Juan Pérez
+
+| Rol | Usuario | Nombre Completo |
+| :--- | :--- | :--- |
+| **Administrador** | `admin1@test.com` | Carlos Gómez |
+| **Soporte** | `soporte1@test.com` | María Rodríguez |
+| **Cliente** | `cliente1@test.com` | Juan Pérez |
 
 ## ✨ 4. Funcionalidades Implementadas (Por Rol)
 A. Lógica de Roles y Flujo de Soporte
 Flujo de Asignación: Cuando un usuario de Soporte atiende un ticket en estado Nueva y lo cambia a En Progreso, el sistema automáticamente asigna el ticket a su support_id en la base de datos.
 
 B. Funcionalidades por Panel
-# Rol	        Funcionalidades
-Cliente         Creación de Solicitudes (con validación de longitud). Listado de tickets propios, ordenados por prioridad de estado (Nueva $\rightarrow$ En Progreso).
 
-Soporte	        Listado de tickets que requieren acción (estado Nueva o asignados a él). Opción de actualizar estado y redactar respuesta para el cliente. 
-                Muestra el nombre del soporte asignado.
-
-Administrador	Listado general de TODAS las solicitudes. Filtro por estado. Vista de estadísticas (tarjetas de conteo y gráfico de barras (Chart.js)) para análisis visual.
+| Rol | Funcionalidades |
+| :--- | :--- |
+| **Cliente** | Creación de Solicitudes (con validación de longitud). Listado de tickets propios, ordenados por prioridad de estado (`Nueva` $\rightarrow$ `En Progreso`). |
+| **Soporte** | Listado de tickets que requieren acción (estado `Nueva` o asignados a él). Opción de **actualizar estado** y **redactar respuesta** para el cliente. Muestra el nombre del soporte asignado. |
+| **Administrador** | Listado general de **TODAS** las solicitudes. Filtro por estado. Vista de **estadísticas** (tarjetas de conteo y gráfico de barras (Chart.js)) para análisis visual. |
