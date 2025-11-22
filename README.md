@@ -33,34 +33,34 @@ Sigue estos pasos para levantar el sistema completo (Backend y Frontend).
 
 ### 2.2. Configuración del Backend (API REST)
 
-# Navegar a la carpeta del backend
+*Navegar a la carpeta del backend
 cd sistema-gestion-backend
 
-# 1. Configurar variables de entorno
-# Crear un archivo llamado .env en la raíz del backend con:
-# DB_USER=root
-# DB_PASSWORD=TuContraseñaMySQL
-# DB_NAME=solicitudes_db
-# JWT_SECRET=TuClaveSecretaLarga
+1. Configurar variables de entorno
+Crear un archivo llamado .env en la raíz del backend con:
+- DB_USER=root
+- DB_PASSWORD=TuContraseñaMySQL
+- DB_NAME=solicitudes_db
+- JWT_SECRET=TuClaveSecretaLarga
 
-# 2. Instalar dependencias
+2. Instalar dependencias
 npm install
 
-# 3. Iniciar el servidor (Usando nodemon para desarrollo)
+3. Iniciar el servidor (Usando nodemon para desarrollo)
 npm run dev
-# La API se ejecutará en http://localhost:3000
+La API se ejecutará en http://localhost:3000
 
 ### 2.3. Configuración del Frontend (Angular)
 
-# Navegar a la carpeta del frontend
+Navegar a la carpeta del frontend
 cd sistema-gestion-frontend
 
-# 1. Instalar dependencias
+1. Instalar dependencias
 npm install
 
-# 2. Iniciar el servidor
+2. Iniciar el servidor
 ng serve --open
-# La aplicación se abrirá en http://localhost:4200
+La aplicación se abrirá en http://localhost:4200
 
 ## 🔑 3. Credenciales de Prueba
 
