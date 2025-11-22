@@ -83,3 +83,28 @@ B. Funcionalidades por Panel
 | **Cliente** | Creación de Solicitudes (con validación de longitud). Listado de tickets propios, ordenados por prioridad de estado (`Nueva` $\rightarrow$ `En Progreso`). |
 | **Soporte** | Listado de tickets que requieren acción (estado `Nueva` o asignados a él). Opción de **actualizar estado** y **redactar respuesta** para el cliente. Muestra el nombre del soporte asignado. |
 | **Administrador** | Listado general de **TODAS** las solicitudes. Filtro por estado. Vista de **estadísticas** (tarjetas de conteo y gráfico de barras (Chart.js)) para análisis visual. |
+
+
+### 5. Aspectos a Mejorar (Oportunidades Futuras)
+
+Si tuviera más tiempo, me enfocaría en los siguientes puntos para llevar el sistema a nivel de producción y mejorar la experiencia del usuario y la capacidad de análisis:
+
+#### A. Lógica y Flujo de Trabajo (Business Logic)
+
+* **Gestión del Soporte:**
+    * **Dashboard Flexible:** Separar la vista de tickets en filtros: **'Mis Tickets'** (solo asignados al usuario) y **'Tickets Disponibles'** (`Nueva` o no asignados) para una mejor priorización.
+    * **Restricción Post-Resolución:** Deshabilitar el `textarea` de respuesta de soporte en el Frontend cuando el ticket esté en estado **'Resuelta'** para proteger el historial de la solución.
+    * **Alerta de Servicio Lento (SLA Básico):** Implementar un indicador visual en el Panel de Soporte para tickets en estado **'Nueva'** que hayan permanecido sin atención por más de **2 horas**, urgiendo a un cambio de estado a 'En Progreso'.
+* **Rol Cliente:** Clarificar que el rol **Cliente** solo interactúa con la plataforma para la **creación** y **consulta** de solicitudes, sin ninguna otra capacidad de gestión.
+
+#### B. Análisis y Administración (Admin Panel)
+
+* **Balance de Carga y Gráficos:** Desarrollar un **gráfico de distribución** que visualice los tickets asignados por cada agente de soporte, incluyendo filtros por periodo de tiempo (ej., 1 Semana / 1 Mes) para evaluar la carga laboral.
+* **Métricas de Desempeño:** Implementar una funcionalidad para calcular el **tiempo de servicio** (tiempo transcurrido desde 'En Progreso' hasta 'Resuelta') para medir la eficiencia del equipo.
+* **Gestión de Usuarios:** Agregar una funcionalidad **CRUD** (Crear, Editar, Eliminar) para administrar usuarios (Clientes, Soporte, Administradores) directamente desde la interfaz.
+
+#### C. Arquitectura y Calidad de Código
+
+* **Pruebas Unitarias:** Implementar pruebas unitarias básicas en el Backend (para *endpoints* críticos como Login y `protect` middleware) y en el Frontend (para la lógica de servicios).
+* **Seguridad (Hashing):** Implementar *hashing* de contraseñas (ej. bcrypt) en el Backend.
+* **Mejoras de UX/UI:** Implementar un **botón (menú hamburguesa)** que permita compactar/expandir el Sidebar en diferentes resoluciones para mejorar el espacio de trabajo.
