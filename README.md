@@ -1,4 +1,4 @@
-# 🚀 Prueba Técnica Frontend: Sistema de Gestión de Solicitudes
+# 🚀 Sistema de Gestión de Solicitudes
 
 Este proyecto implementa un sistema de gestión de solicitudes con autenticación basada en roles (Cliente, Soporte, Administrador) desarrollado según los requisitos mínimos y extras valorados de la prueba técnica.
 
