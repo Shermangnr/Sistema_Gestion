@@ -94,7 +94,7 @@ Si tuviera más tiempo, me enfocaría en los siguientes puntos para llevar el si
 * **Gestión del Soporte:**
     * **Dashboard Flexible:** Separar la vista de tickets en filtros: **'Mis Tickets'** (solo asignados al usuario) y **'Tickets Disponibles'** (`Nueva` o no asignados) para una mejor priorización.
     * **Restricción Post-Resolución:** Deshabilitar el `textarea` de respuesta de soporte en el Frontend cuando el ticket esté en estado **'Resuelta'** para proteger el historial de la solución.
-    * **Alerta de Servicio Lento (SLA Básico):** Implementar un indicador visual en el Panel de Soporte para tickets en estado **'Nueva'** que hayan permanecido sin atención por más de **2 horas**, urgiendo a un cambio de estado a 'En Progreso'.
+    * **Alerta de Servicio:** Implementar un indicador visual en el Panel de Soporte para tickets en estado **'Nueva'** que hayan permanecido sin atención por más de **2 horas**, urgiendo a un cambio de estado a 'En Progreso'.
 * **Rol Cliente:** Clarificar que el rol **Cliente** solo interactúa con la plataforma para la **creación** y **consulta** de solicitudes, sin ninguna otra capacidad de gestión.
 
 #### B. Análisis y Administración (Admin Panel)
