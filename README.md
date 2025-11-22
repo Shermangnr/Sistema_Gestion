@@ -85,7 +85,7 @@ B. Funcionalidades por Panel
 | **Administrador** | Listado general de **TODAS** las solicitudes. Filtro por estado. Vista de **estadísticas** (tarjetas de conteo y gráfico de barras (Chart.js)) para análisis visual. |
 
 
-### 5. Aspectos a Mejorar (Oportunidades Futuras)
+## 🚧 5. Aspectos a Mejorar (Oportunidades Futuras)
 
 Si tuviera más tiempo, me enfocaría en los siguientes puntos para llevar el sistema a nivel de producción y mejorar la experiencia del usuario y la capacidad de análisis:
 
