@@ -1,0 +1,12 @@
+# Dependencias de Node
+/node_modules
+/sistema-gestion-backend/node_modules
+/sistema-gestion-frontend/node_modules
+/npm-debug.log
+
+# Archivos de configuración
+/sistema-gestion-backend/.env
+/sistema-gestion-backend/.gitignore # No subir el gitignore del backend si existe
+/sistema-gestion-frontend/.angular/
+/sistema-gestion-frontend/dist/
+/sistema-gestion-frontend/tmp/
