@@ -6,7 +6,4 @@
 
 # Archivos de configuración
 /sistema-gestion-backend/.env
-/sistema-gestion-backend/.gitignore # No subir el gitignore del backend si existe
-/sistema-gestion-frontend/.angular/
-/sistema-gestion-frontend/dist/
-/sistema-gestion-frontend/tmp/
+/sistema-gestion-backend/.gitignore 
