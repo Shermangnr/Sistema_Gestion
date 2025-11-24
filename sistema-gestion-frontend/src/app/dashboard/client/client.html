@@ -1,0 +1,71 @@
+<h2 class="mb-4">Panel de Cliente</h2>
+
+<div *ngIf="feedbackMessage" class="alert alert-info">{{ feedbackMessage }}</div>
+
+<div class="d-flex justify-content-center">
+    <div class="card mb-4 shadow-sm request-form-card" style="width: 50%;">
+        <div class="card-header bg-success text-white text-center">
+            <h5 class="mb-0">Crear Nueva Solicitud</h5>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="title" class="form-label small">Título:</label>
+                        <input type="text" class="form-control" id="title" placeholder="Ej. Problema con mi impresora" [(ngModel)]="newRequest.title" name="title" required #titleInput="ngModel" minlength="5">
+                        
+                        <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="text-danger small mt-1">
+                            <div *ngIf="titleInput.errors?.['required']">El título es obligatorio.</div>
+                            <div *ngIf="titleInput.errors?.['minlength']">Mínimo 5 caracteres.</div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-12 mb-3">
+                        <label for="description" class="form-label small">Descripción Detallada del Problema:</label>
+                        <textarea class="form-control" id="description" rows="2" [(ngModel)]="newRequest.description" name="description" required #descInput="ngModel" minlength="10"></textarea>
+                        
+                        <div *ngIf="descInput.invalid && (descInput.dirty || descInput.touched)" class="text-danger small mt-1">
+                            <div *ngIf="descInput.errors?.['required']">La descripción es obligatoria.</div>
+                            <div *ngIf="descInput.errors?.['minlength']">Mínimo 10 caracteres.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success mt-1" 
+                            [disabled]="isCreating || titleInput.invalid || descInput.invalid">
+                        <span *ngIf="isCreating" class="spinner-border spinner-border-sm me-2"></span>
+                        {{ isCreating ? 'Enviando...' : 'Crear Solicitud' }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<h3 class="mb-3">Mis Solicitudes</h3>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Estado</th>
+                <th>Respuesta de Soporte</th>
+                <th>Creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of requests">
+                <td>{{ req.id }}</td>
+                <td>{{ req.title }}</td>
+                <td><span class="badge" [ngClass]="{'bg-warning': req.status === 'Nueva', 'bg-primary': req.status === 'En Progreso', 'bg-info': req.status === 'Esperando Cliente', 'bg-success': req.status === 'Resuelta'}">{{ req.status }}</span></td>
+                <td>{{ req.support_response || 'Pendiente de respuesta' }}</td>
+                <td>{{ req.created_at | date: 'short' }}</td>
+            </tr>
+            <tr *ngIf="requests.length === 0">
+                <td colspan="5" class="text-center">No tienes solicitudes registradas.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

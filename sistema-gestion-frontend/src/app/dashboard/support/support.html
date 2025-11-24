@@ -1,0 +1,66 @@
+<h2 class="mb-4">Panel de Soporte</h2>
+
+<div *ngIf="feedbackMessage" class="alert alert-info">{{ feedbackMessage }}</div>
+
+<h3 class="mb-3">Tickets Asignados / Nuevos</h3>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Estado</th>
+                <th>Cliente</th>
+                <th>Título</th>
+                <th>Asignado a (ID)</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of requests" (click)="selectRequest(req)" 
+                [ngClass]="{'table-warning': req.status === 'Nueva', 'table-primary': req.status === 'En Progreso'}" 
+                style="cursor: pointer;">
+                <td>{{ req.id }}</td>
+                <td><span class="badge" [ngClass]="{'bg-warning': req.status === 'Nueva', 'bg-primary': req.status === 'En Progreso', 'bg-info': req.status === 'Esperando Cliente', 'bg-success': req.status === 'Resuelta'}">{{ req.status }}</span></td>
+                <td>{{ req.client_name }}</td>
+                <td>{{ req.title }}</td>
+                <td>{{ req.support_name || 'Sin asignar' }}</td>
+                <td>
+                    <button class="btn btn-sm btn-info" (click)="$event.stopPropagation(); selectRequest(req)">
+                        Atender
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="requests.length === 0">
+                <td colspan="6" class="text-center">No hay tickets nuevos o asignados.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="selectedRequest" class="card shadow-lg mt-5">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h5>Atender Solicitud #{{ selectedRequest.id }}</h5>
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="selectedRequest = null"></button>
+    </div>
+    <div class="card-body">
+        <p><strong>Cliente:</strong> {{ selectedRequest.client_name }}</p>
+        <p><strong>Título:</strong> {{ selectedRequest.title }}</p>
+        <p><strong>Descripción:</strong> <span class="text-muted"> {{ selectedRequest.description }}</span></p>
+
+        <form (ngSubmit)="updateRequest()">
+            <div class="mb-3">
+                <label for="status" class="form-label">Cambiar Estado</label>
+                <select class="form-select" id="status" [(ngModel)]="selectedRequest.status" name="status" required>
+                    <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="response" class="form-label">Respuesta de Soporte</label>
+                <textarea class="form-control" id="response" rows="3" [(ngModel)]="selectedRequest.support_response" name="response" placeholder="Escriba su respuesta o comentarios..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary me-2">Guardar Actualización</button>
+            <button type="button" class="btn btn-secondary" (click)="selectedRequest = null">Cancelar</button>
+        </form>
+    </div>
+</div>

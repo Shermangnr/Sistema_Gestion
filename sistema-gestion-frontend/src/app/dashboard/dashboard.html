@@ -1,0 +1,48 @@
+<div class="main-layout d-flex">
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header text-center py-4">
+            <img src="https://i.pravatar.cc/150?u={{userName}}" alt="Perfil" class="profile-img mb-3 shadow-lg">
+
+            <h5 class="text-white">{{ userName | titlecase }}</h5>
+            <small class="text-white">{{ userRole }}</small>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li *ngIf="userRole === 'Client'">
+                <a routerLink="/dashboard/client" routerLinkActive="active" class="d-flex align-items-center">
+                    <i class="bi bi-file-earmark-plus-fill me-2"></i> Mis Solicitudes
+                </a>
+            </li>
+
+            <li *ngIf="userRole === 'Support'">
+                <a routerLink="/dashboard/support" routerLinkActive="active" class="d-flex align-items-center">
+                    <i class="bi bi-headset me-2"></i> Mis Tickets
+                </a>
+            </li>
+
+            <li *ngIf="userRole === 'Admin'">
+                <a routerLink="/dashboard/admin" routerLinkActive="active" class="d-flex align-items-center">
+                    <i class="bi bi-bar-chart-fill me-2"></i> Reportes y Gráficos
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout-section py-5 px-3">
+            <button class="btn btn-danger w-100 d-flex align-items-center justify-content-center" (click)="onLogout()">
+                <i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión
+            </button>
+        </div>
+        <hr style="margin: 0; color: #fff;">
+        <div class="sidebar-footer py-3 text-center">
+            <span class="small text-white-50">© 2025 Todos los derechos reservados.</span>
+            <br>
+            <span class="small text-white-50">Desarrollado por <b><i>Softeam</i></b>.</span>
+        </div>
+    </nav>
+
+    <div id="content" class="content-area">
+        <div class="content-body">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

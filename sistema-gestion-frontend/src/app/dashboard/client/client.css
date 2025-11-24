@@ -1,0 +1,44 @@
+/* Estilos para el formulario de nueva solicitud */
+.request-form-card .card-header {
+    background-color: #155724 !important; 
+    color: #fff;
+    font-weight: 600;
+}
+
+.request-form-card .card-body {
+    padding: 20px;
+}
+
+/* Reducir el tamaño de la fuente para las etiquetas */
+.request-form-card .form-label.small {
+    font-size: 0.85rem;
+    color: #555; 
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Estilo para los inputs */
+.request-form-card .form-control {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.request-form-card .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Estilo para el botón de envío */
+.request-form-card .btn-success {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.request-form-card .btn-success:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
